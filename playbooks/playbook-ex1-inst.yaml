@@ -1,0 +1,34 @@
+
+- name: exercicio ansible 1 com melhorias do instrutor
+  hosts: all
+  tasks: 
+   - name: instalando pacotes
+     package: 
+      name: 
+       - vim
+       - htop
+       - cowsay
+       - sl
+      state: present
+
+   - name: adicionando usuarios
+     user:
+      name: "{{item}}"
+      shell: '/bin/bash'
+      password: '$1$IqBYIJ5F$gZVhslXi5q9f9VblB7VIL/'
+     with_items:
+      - devops
+      - developer
+      - bruno
+
+
+- name: instalando epel-release
+  hosts: "{{host}}"
+  vars:
+   - host: automation
+  tasks:
+   - name: instalando o epel  
+     package: 
+      name: epel-release
+      state: present
+

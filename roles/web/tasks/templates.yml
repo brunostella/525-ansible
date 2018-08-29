@@ -1,0 +1,4 @@
+- name: Criando arquivo index
+  template:
+   src: templates/index.html
+   dest: /var/www/html/

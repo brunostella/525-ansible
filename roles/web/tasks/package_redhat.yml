@@ -1,0 +1,29 @@
+- name: Instalando pacotes no RedHat
+  package:
+   name:
+    - httpd
+    - php
+    - mariadb
+    - mc
+   state: present
+  notify:
+   - liberar firewall http
+   - reload firewall
+ 
+#- name: Liberando firewall no RedHat
+#  firewalld:
+#   service: http
+#   permanent: true
+#   state: enabled
+#
+#- name: Iniciando o firewall no RedHat
+#  service:
+#   name: firewalld
+#   state: restarted
+
+- name: Iniciando o servico Apache
+  service:
+   name: httpd
+   state: started
+   enabled: yes
+

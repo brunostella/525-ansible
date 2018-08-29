@@ -1,0 +1,7 @@
+
+- name: Instalando o Puppet
+#  hosts: automation
+  hosts: "{{servidor}}"
+  roles: 
+   - puppet
+

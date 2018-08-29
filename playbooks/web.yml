@@ -1,0 +1,6 @@
+- name: Instalando um servidor LAMP e criando index
+  hosts: "{{maquinas}}"
+  vars:
+   - maquinas: all
+  roles:
+   - web

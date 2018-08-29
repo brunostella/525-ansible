@@ -1,0 +1,47 @@
+
+- name: exercicio ansible 1
+  hosts: all
+  tasks: 
+   - name: instalando cowsay
+     package: 
+      name: cowsay
+      state: present
+
+   - name: instalando vim
+     package: 
+      name: vim
+      state: present
+
+   - name: instalando htop
+     package: 
+      name: htop
+      state: present
+
+   - name: adicionando usuario devops
+     user:
+      name: devops
+      shell: '/bin/bash'
+      password: '$1$IqBYIJ5F$gZVhslXi5q9f9VblB7VIL/'
+   
+   - name: adicionando usuario developer
+     user:
+      name: developer
+      shell: '/bin/bash'
+      password: '$1$IqBYIJ5F$gZVhslXi5q9f9VblB7VIL/'
+   
+   - name: adicionando usuario bruno
+     user:
+      name: bruno
+      shell: '/bin/bash'
+      password: '$1$IqBYIJ5F$gZVhslXi5q9f9VblB7VIL/'
+   
+
+
+- name: instalando epel-release
+  hosts: automation.dexter.com.br
+  tasks:
+   - name: instalando so em uma  
+     package: 
+      name: epel-release
+      state: present
+

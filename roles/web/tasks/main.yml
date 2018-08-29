@@ -1,0 +1,15 @@
+---
+# tasks file for web
+
+- name: Instalando pacotes LAMP em Debian
+  include: package_debian.yml
+  when: ansible_os_family == "Debian"
+
+- name: Instalando pacotes LAMP em RedHat
+  include: package_redhat.yml
+  when: ansible_os_family == "RedHat"
+
+- name: Criando arquivo index
+  include: templates.yml
+  
+

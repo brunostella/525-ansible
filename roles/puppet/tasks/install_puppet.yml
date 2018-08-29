@@ -1,0 +1,17 @@
+- name: install server
+  apt:
+   name: puppetserver
+   update_cache: yes
+  when: ansible_os_family == "Debian" and ansible_hostname == "devops" 
+
+#- name: install agent debian
+#  apt:
+#   name: puppet-agent
+#   update_cache: yes
+#  when: ansible_os_family == "Debian"
+
+- name: install agent
+  package:
+   name: puppet-agent
+   update_cache: yes
+
