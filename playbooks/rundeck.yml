@@ -13,8 +13,8 @@
      package:
       name:
        - rundeck
-       - ansible-2.6.3
-      state: present
+       - ansible
+      state: latest
 
    - name: copiando diretorios ansible
      copy:
