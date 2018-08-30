@@ -1,0 +1,33 @@
+- name: Instalacao do rundeck completo
+  hosts: automation
+  tasks:
+
+   - name: instalando dependencias
+     yum:
+      name:
+       - java-1.8.0
+       - http://repo.rundeck.org/latest.rpm
+      state: present
+
+   - name: instalando rundeck e ansible
+     package:
+      name:
+       - rundeck
+       - ansible-2.6.3
+      state: present
+
+   - name: copiando diretorios ansible
+     copy:
+       src: "{{item.src}}"
+       dest: "{{item.dest}}"
+     with_items:
+       - { src: /etc/keys, dest: /etc/ } 
+       - { src: /etc/ansible/hosts, dest: /etc/ansible/ } 
+       - { src: /etc/ansible/ansible.cfg, dest: /etc/ansible/ } 
+
+
+#   - name: iniciando o servico
+#     service: 
+#      name: rundeckd
+#      state: started
+    
